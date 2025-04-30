@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breast-Cancer-Detection</title>
+    <link rel="stylesheet" href="static/style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "poppins", sans-serif;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), transparent),
+          url(https://tse4.mm.bing.net/th?id=OIP.xddyM5Z5llwe5nz0xAnhvAHaD_&pid=Api&P=0&h=220);
+        background-size: cover;
+        background-position: center;
+        padding: 0 8%;
+        position: relative;
+      }
+      h1 {
+  font-size: 60px;
+  font-family: bradley hand;/* Adjust the font size as needed */
+  color: #fff; /* Center-align the text */
+  margin-top: 20px; /* Add top margin as needed */
+}
+
+      nav{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 5px 0;
+      }
+      nav img{
+        width: 300px;
+        height: 150px;
+      }
+      
+      nav ul{
+        flex: 1;
+        text-align: right;
+        padding-right: 30px;
+      }
+      nav ul li{
+        display: inline-block;
+        list-style: none;
+        margin: 5px 20px; 
+      }
+      nav ul li a{
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+      }
+      nav ul li a::after{
+        content: '';
+        width: 50%;
+        height: 3px;
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        transition: width 0.5s;
+      }
+      nav ul li a::hover::after{
+        width: 50%;
+      }
+      .text-box{
+        color: #fff;
+        position: absolute;
+        bottom: 8%;
+      }
+      .text-box h1{ 
+        font-size: 190px;
+        line-height: 160px;
+        margin-left: -10px;
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+        background-image: url(https://tse4.mm.bing.net/th?id=OIP.mStCHTa7tLEi8TlRT5tpJQHaFK&pid=Api&P=0&h=220);
+        -webkit-background-clip: text;
+        background-position: 0 0;
+        animation: back 20s linear infinite;
+      }
+      @keyframes back{
+        100%{
+            background-position: 2000px 0;
+        }
+      }
+      .text-box h3{
+        font-size: 20px;
+        font-weight: 300;
+      }
+      .text-box.row{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+      .text-box a {
+  color: #fff;
+  padding: 10px 10px; /* Adjust the padding to make the box smaller */
+  margin-right: 15px; /* Adjust the right margin as needed */
+  margin-top: 5px; /* Adjust the top margin as needed */
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <nav>
+          <h1>WELCOME</h1>
+            <ul>
+                <li>
+                  <a href="{{ url_for('about') }}">Let's Go</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="text-box">
+              <h1>CANCER</h1> 
+              <h3>Breast Cancer detection</h3>
+
+              <div class="row">
+              <a href="https://www.linkedin.com/in/udi-rohini-55843a246">connect with me <span>&#x27F6</span></a>
+              </div>          
+        </div>
+    </div>
+  </body>
+</html>

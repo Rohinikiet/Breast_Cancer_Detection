@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Predictor</title> <!-- Kept original title -->
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Main container for the two columns */
+        .layout-container {
+            display: flex;
+            max-width: 900px; /* Adjust width as needed */
+            width: 90%;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Left Image Section */
+        .image-section {
+            flex-basis: 50%;
+            position: relative;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/024/120/598/large_2x/woman-checking-her-breast-to-prevent-and-support-the-cause-of-breast-cancer-breast-self-exam-concept-illustration-vector.jpg'); /* !!! REPLACE WITH YOUR IMAGE URL !!! */
+            background-size: cover;
+            background-position: center;
+            min-height: 500px; /* Adjust height as needed */
+        }
+
+        /* Image Overlay - CHANGED TO SKY BLUE GRADIENT */
+        .image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Changed gradient from pink/purple to sky blue shades */
+            background: linear-gradient(to bottom right, rgba(135, 206, 235, 0.8), rgba(30, 144, 255, 0.8)); /* SkyBlue to DodgerBlue */
+            opacity: 0.85;
+        }
+
+        /* Right Form Section */
+        .form-section {
+            flex-basis: 50%;
+            padding: 40px 50px;
+            display: flex; /* Use flex to better control content alignment */
+            flex-direction: column; /* Stack elements vertically */
+        }
+
+        /* Style the original H2 */
+        .form-section h2 {
+            font-size: 28px; /* Style like "Sign Up" */
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Style the form itself if needed, e.g., for spacing */
+        .form-section form {
+            width: 100%; /* Ensure form takes full width of the section */
+        }
+
+        /* Grouping label and input for spacing */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Style the original labels */
+        .form-group label {
+            display: block;
+            font-size: 14px; /* Style like image labels */
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        /* Style the original number inputs like text inputs */
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 10px 0;
+            border: none;
+            border-bottom: 1px solid #ddd; /* Bottom border only */
+            font-size: 16px;
+            color: #555;
+            background-color: transparent;
+            outline: none;
+            transition: border-color 0.3s ease;
+            -moz-appearance: textfield; /* Firefox */
+        }
+        .form-group input[type="number"]::-webkit-outer-spin-button,
+        .form-group input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+            margin: 0;
+        }
+
+        /* Style input placeholder */
+        .form-group input::placeholder {
+            color: #aaa;
+            font-size: 15px;
+        }
+
+        /* Focus style for inputs - CHANGED TO BLUE */
+        .form-group input:focus {
+            border-bottom-color: #1E90FF; /* Highlight border on focus - DodgerBlue */
+        }
+
+        /* Style the original submit button - CHANGED TO BLUE GRADIENT */
+        .submit-btn {
+            padding: 12px 30px;
+            margin-top: 20px; /* Add some space above the button */
+            border: none;
+            border-radius: 25px; /* Pill shape */
+            /* Changed gradient from pink/purple to sky blue shades */
+            background: linear-gradient(to right, #87CEEB, #1E90FF); /* SkyBlue to DodgerBlue */
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            /* Adjusted shadow color to match blue theme */
+            box-shadow: 0 4px 10px rgba(30, 144, 255, 0.4); /* DodgerBlue shadow */
+            display: inline-block; /* Allow margin-top */
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .layout-container {
+                flex-direction: column;
+                width: 95%;
+            }
+
+            .image-section {
+                min-height: 200px;
+                flex-basis: auto;
+            }
+
+            .form-section {
+                flex-basis: auto;
+                padding: 30px;
+            }
+
+            .form-section h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Added container div -->
+    <div class="layout-container">
+
+        <!-- Added image section div -->
+        <div class="image-section">
+            <!-- Background image and overlay applied via CSS -->
+            <!-- Remember to replace 'your-image-url.jpg' -->
+        </div>
+
+        <!-- Added form section div wrapping original content -->
+        <div class="form-section">
+            <!-- Original HTML content starts here -->
+            <h2>Breast Cancer Detection</h2>
+            <form action="/predict" method="post">
+                <!-- Wrapped label/input pairs in divs for styling -->
+                <div class="form-group">
+                    <label for="size">Tumor Size (Mean Radius):</label>
+                    <input type="number" step="0.01" id="size" name="size" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="texture">Texture:</label>
+                    <input type="number" step="0.01" id="texture" name="texture" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="perimeter">Perimeter (Border Length):</label>
+                    <input type="number" step="0.01" id="perimeter" name="perimeter" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="concavity">Concavity:</label>
+                    <input type="number" step="0.01" id="concavity" name="concavity" required>
+                </div>
+
+                <!-- Added class to the button for styling -->
+                <button type="submit" class="submit-btn">Check Risk</button>
+            </form>
+             <!-- Original HTML content ends here -->
+        </div>
+    </div>
+
+</body>
+</html>

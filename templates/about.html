@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Awareness Site - Info</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Adjust based on your header height */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        img {
+             max-width: 100%;
+             height: auto;
+             display: block;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- Main Header --- */
+        .main-header {
+            background-color: #fff;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo img {
+            max-height: 70px;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .main-nav a {
+            color: #333;
+            font-weight: 600;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+        }
+
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #56A0D3; /* Sky Blue */
+            border-bottom-color: #56A0D3; /* Sky Blue */
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .search-icon {
+            font-size: 1.2rem;
+            color: #555;
+            cursor: pointer;
+        }
+        .search-icon:hover { color: #56A0D3; } /* Sky Blue */
+
+        .donate-button {
+            background-color: #56A0D3; /* Sky Blue */
+            color: #fff !important;
+            padding: 8px 18px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+         .donate-button:hover { background-color: #3A8AC0; } /* Darker Sky Blue */
+
+        .give-monthly {
+            color: #56A0D3; /* Sky Blue */
+            font-weight: 600;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        .give-monthly span { font-size: 1rem; margin-right: 3px; }
+        .header-actions .donate-group {
+             display: flex;
+             flex-direction: column;
+             align-items: flex-start;
+             gap: 5px;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background-color: #f0f8ff; /* Light Blue background */
+            padding: 60px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-text-column {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 20px; /* Only relevant when text is on left */
+        }
+
+         .hero-image-column { /* Added padding for consistency when image is on left */
+            flex: 1;
+            min-width: 300px;
+            padding-left: 20px; /* Only relevant when image is on left */
+            text-align: center;
+        }
+
+
+        .hero-text-column h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .hero-text-column h1 span {
+            color: #56A0D3; /* Sky Blue */
+        }
+
+        .hero-text-column p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 25px;
+        }
+         .hero-text-column .cta-button {
+             display: inline-block;
+             background-color: #56A0D3; /* Sky Blue */
+             color: #fff !important;
+             padding: 12px 30px;
+             font-weight: 700;
+             border-radius: 5px;
+             font-size: 1em;
+             text-transform: uppercase;
+             transition: background-color 0.3s ease;
+         }
+         .hero-text-column .cta-button:hover {
+             background-color: #3A8AC0; /* Darker Sky Blue */
+         }
+
+        .hero-image-column img {
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
+
+        /* --- General Content Section Styling --- */
+        .content-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .content-section:nth-child(odd) { /* Note: This alternates based on element order, not type */
+             background-color: #fff;
+        }
+         .content-section:nth-child(even) {
+             background-color: #f9f9f9;
+         }
+         .content-section:last-of-type {
+             border-bottom: none;
+         }
+
+        .content-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px; /* Increased gap slightly */
+            align-items: flex-start;
+        }
+        .text-column {
+            flex: 1.5;
+            min-width: 300px;
+        }
+        .text-column h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #56A0D3; /* Sky Blue underline */
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+        .text-column p {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.05em;
+        }
+        .image-column {
+            flex: 1;
+            min-width: 280px; /* Adjusted slightly */
+            /* text-align: center; */ /* Centering happens via margin auto when needed */
+        }
+        .image-column img {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+            margin: 0 auto; /* Center image within column if it's narrower */
+        }
+        .image-column p.caption {
+             font-size: 0.9em;
+             color: #777;
+             margin-top: 8px;
+             font-style: italic;
+             text-align: center; /* Center caption text */
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #333; color: #ccc; padding: 30px 0;
+            margin-top: 0;
+            font-size: 0.9em;
+        }
+        footer .container { text-align: center; }
+        footer a { color: #fff; }
+        footer a:hover { text-decoration: underline; }
+
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 992px) {
+            .main-nav ul { justify-content: center; gap: 15px; }
+            .main-header .container { justify-content: space-between; }
+             /* Adjust column basis for tablet if needed */
+             /* These become less relevant when order changes, flex handles it */
+            /* .content-columns .text-column { flex-basis: 55%; } */
+            /* .content-columns .image-column { flex-basis: 35%; } */
+        }
+
+        @media (max-width: 768px) {
+            html { scroll-padding-top: 60px; }
+            .main-header .container { flex-direction: column; align-items: center; }
+            .main-nav { order: 3; margin-top: 10px; }
+            .header-actions { order: 2; margin-top: 10px; justify-content: center; }
+            .logo { order: 1; }
+
+            /* Hero Responsive */
+            .hero-section { padding: 40px 0; }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .hero-text-column { padding-right: 0; }
+             .hero-image-column { padding-left: 0; } /* Remove padding */
+            .hero-text-column h1 { font-size: 2.2em; }
+            .hero-image-column { order: -1; }
+
+            /* Content Section Columns Responsive */
+            .content-columns {
+                flex-direction: column; /* Stack all columns */
+                gap: 25px;
+            }
+             /* The order in stacked view will now follow the HTML source order */
+            .content-columns .text-column,
+            .content-columns .image-column {
+                 flex-basis: auto;
+                 min-width: 100%;
+                 text-align: left; /* Align text left */
+            }
+             .content-columns .image-column {
+                margin-top: 0; /* Reset margin-top */
+                text-align: center; /* Center image */
+             }
+
+             /* Specific ordering for mobile if needed (usually HTML order is fine) */
+             /* Example: #about-cancer .image-column { order: -1; } */
+             /* But sticking to HTML order is often simpler */
+
+            .text-column h2 { font-size: 1.8em; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+         <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="#">
+                        <img src="https://tse2.mm.bing.net/th?id=OIP.xtFs7uYJ-7KOyeP2POSOqwHaHa&pid=Api&P=0&h=220" alt="Cancer Awareness Logo Placeholder">
+                    </a>
+                </div>
+                <nav class="main-nav">
+                     <ul>
+                        <li><a href="#about-cancer">About Cancer</a></li>
+                        <li><a href="#screening">Screening</a></li>
+                        <li><a href="#patients-caregivers">Patients & Caregivers</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#how-to-help">How to Help</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="search-icon">🔍</div>
+                    <div class="donate-group">
+                        <a href="#" class="donate-button">Donate</a>
+                        <a href="#" class="give-monthly"><span>❤</span> Give Monthly ></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+             <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text-column">
+                        <h1>Breast Cancer <span>Detection</span></h1>
+                        <p>
+                            Understanding the importance of early detection and the available screening methods is crucial. Learn more about taking control of your health.
+                        </p>
+                        <!-- Inside the hero-section -> hero-content -> hero-text-column -->
+<a href="{{ url_for('predict_form') }}" class="cta-button">Check prediction</a>
+                    </div>
+                    <div class="hero-image-column">
+                        <img src="https://cdn-images-1.medium.com/max/2600/1*gNcFEL1cpGpDC4vo1zUAWA.png" alt="Image related to breast cancer detection or screening">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. About Cancer Section (Image Left, Text Right) -->
+        <section id="about-cancer" class="content-section">
+            <div class="container">
+                <div class="content-columns">
+                    <!-- Image Column FIRST -->
+                    <div class="image-column">
+                         <img src="https://img.freepik.com/premium-photo/breast-cancer-awareness-ribbon-many-colors_905683-145768.jpg" alt="Abstract image representing cells or DNA">
+                         <!-- <p class="caption">Understanding cell growth.</p> -->
+                    </div>
+                    <!-- Text Column SECOND -->
+                    <div class="text-column">
+                        <h2>About Cancer</h2>
+                        <p>
+                            Cancer is a disease in which some of the body's cells grow uncontrollably and spread to other parts of the body. It can start almost anywhere in the human body. Understanding the basics is the first step toward awareness and prevention.
+                        </p>
+                        <p>
+                            There are many types of cancer, usually named for the organs or tissues where the cancers form. Learning about risk factors, symptoms, and treatment options is vital.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Screening Section (Text Left, Image Right) -->
+        <section id="screening" class="content-section">
+            <div class="container">
+                <div class="content-columns">
+                    <!-- Text Column FIRST -->
+                    <div class="text-column">
+                        <h2>Screening & Early Detection</h2>
+                        <p>
+                            Regular screening increases the chances of detecting certain cancers early, when they are most likely to be treated successfully. Screening tests can find cancers before symptoms appear.
+                        </p>
+                        <p>
+                            It's important to talk to your doctor about which screening tests are right for you based on your age, family history, and other risk factors. Different types of cancer require different screening methods like mammograms, colonoscopies, and Pap tests.
+                        </p>
+                    </div>
+                    <!-- Image Column SECOND -->
+                    <div class="image-column">
+                        <img src="https://media.istockphoto.com/vectors/mammogram-breast-diagnosis-vector-id1249727878?k=20&m=1249727878&s=612x612&w=0&h=Q3pfmLzOPH9UkOfihfCBqyzxnX22tFHhIKYChe4YDj0=" alt="Image representing medical screening tests">
+                         <p class="caption">Discuss screening with your doctor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Patients & Caregivers Section (Image Left, Text Right) -->
+        <section id="patients-caregivers" class="content-section">
+            <div class="container">
+                 <div class="content-columns">
+                    <!-- Image Column FIRST -->
+                    <div class="image-column">
+                         <img src="https://hopehospice.com/wp-content/uploads/2020/06/blog-banner-caregiver-help-2.jpg" alt="Image showing people supporting each other">
+                         <p class="caption">Support networks are essential.</p>
+                    </div>
+                     <!-- Text Column SECOND -->
+                    <div class="text-column">
+                        <h2>Patients & Caregivers</h2>
+                        <p>
+                            A cancer diagnosis affects not only the patient but also their loved ones. Support systems are crucial during this journey. Resources are available to help navigate treatment, manage side effects, and cope emotionally.
+                        </p>
+                        <p>
+                            Information on support groups, financial assistance programs, and tips for caregivers can provide valuable help during challenging times. Connecting with others who understand can make a significant difference.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Research Section (Text Left, Image Right) -->
+        <section id="research" class="content-section">
+            <div class="container">
+                 <div class="content-columns">
+                    <!-- Text Column FIRST -->
+                    <div class="text-column">
+                        <h2>Cancer Research</h2>
+                        <p>
+                            Ongoing research is vital to improving cancer prevention, detection, and treatment. Scientists are constantly working to understand the complexities of cancer and develop innovative therapies.
+                        </p>
+                        <p>
+                            From basic laboratory science to clinical trials testing new drugs and approaches, research offers hope for better outcomes and ultimately finding cures. Supporting research initiatives helps accelerate progress.
+                        </p>
+                    </div>
+                    <!-- Image Column SECOND -->
+                    <div class="image-column">
+                         <img src="https://tse4.mm.bing.net/th?id=OIP.D2R6nXXt3fIjJpj9nUA1-AHaFj&pid=Api&P=0&h=220" alt="Image representing scientific research or lab work">
+                         <p class="caption">Advancing treatments through research.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. How to Help Section (Image Left, Text Right) -->
+        <section id="how-to-help" class="content-section">
+            <div class="container">
+                 <div class="content-columns">
+                    <!-- Image Column FIRST -->
+                    <div class="image-column">
+                         <img src="https://i.pinimg.com/originals/f3/0a/0b/f30a0b0db2df4b28d4a4fe3c3dbf5449.jpg" alt="Image representing community, volunteering, or donation">
+                         <p class="caption">Make a difference in the fight against cancer.</p>
+                    </div>
+                     <!-- Text Column SECOND -->
+                    <div class="text-column">
+                        <h2>How to check</h2>
+                        <p>
+                            The table outlines typical feature ranges used in breast cancer prediction to differentiate between benign and malignant tumors. For Size (Radius), benign tumors generally fall within the range of 6 to 13, while malignant tumors typically range from 15 to 28. Regarding Texture, benign tumors usually have values between 10 and 20, whereas malignant ones range from 18 to 40. The Perimeter of benign tumors is commonly between 40 and 85, compared to 90 to 180 for malignant tumors. Lastly, Concavity values for benign tumors typically lie in the range of 0.0 to 0.1, while malignant tumors usually fall within 0.2 to 0.5. These feature ranges help in distinguishing tumor types during diagnosis and model prediction.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 Cancer Awareness Info. All Rights Reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
